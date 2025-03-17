@@ -1,0 +1,50 @@
+@font-face {
+     font-family: 'pata';
+     src: url(../font/Helvetica.ttf);
+}
+
+@font-face {
+     font-family: 'PPNeu';
+     src: url(../font/PPNeueMachina-InktrapRegular.otf);
+}
+
+@font-face {
+     font-family: 'super';
+     src: url(../font/LINESeedSansTH_W_Th.woff2);
+}
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     overflow-x: hidden;
+
+     font-family: 'pata';
+}
+
+.back{
+     text-decoration: none;
+     color: black;
+     font-size: 24px;
+     height: 40px;
+
+     font-family: 'super';
+
+     position: absolute;
+     top: 15px;
+     left: 20px;
+     transition: all 1s;
+     display: block;
+     font-weight: 700;
+}
+
+.back:hover{
+     transform: translateX(-10%);
+}
+
+.container{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+}

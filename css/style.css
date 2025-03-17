@@ -111,7 +111,7 @@ details summary {
 
 details summary::before {
 content: "▷"; /* Unicode for down arrow (▼) */
-font-size: 15px;  /* Icon size */
+font-size: 14px;  /* Icon size */
 position: absolute; /* Position it properly */
 left: 0;
 top: 0;

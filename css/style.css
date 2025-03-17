@@ -78,6 +78,7 @@ a{
      /* filter: saturate(90%) sepia(30%) contrast(105%); */
      filter: saturate(0) ;
      width: 100%;
+
 }
 
 .image-cover{
@@ -86,6 +87,7 @@ a{
      /* height: 200px; */
      margin-bottom: 3em;
      margin-top: 3em;
+     z-index: 100;
 }
 
 

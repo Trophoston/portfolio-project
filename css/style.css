@@ -75,7 +75,8 @@ a{
 }
 
 .topimage{
-     filter: saturate(90%) sepia(30%) contrast(105%);
+     /* filter: saturate(90%) sepia(30%) contrast(105%); */
+     filter: saturate(0) ;
      width: 100%;
 }
 

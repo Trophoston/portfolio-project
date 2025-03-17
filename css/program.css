@@ -22,6 +22,10 @@
      font-family: 'pata';
 }
 
+p{
+     font-family: 'super';
+}
+
 .back{
      text-decoration: none;
      color: black;

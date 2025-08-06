@@ -2,32 +2,66 @@
 <html lang="en">
 
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>◭</title>
-     <link rel="stylesheet" href="../css/program.css">
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>◭</title>
+       <link rel="stylesheet" href="../css/program.css">
 </head>
 
 <body>
-     <a href="../index.html" class="back">&lharu; Back</a>
+       <a href="../index.html" class="back">&lharu; Back</a>
 
 
-     <div class="pin">
+       <div class="pin"  id="photo-gallery">
 
-          <div class="pin-item">
-               <img src="../src/car.JPG" alt="Photo 1">
-          </div>
-          
-
-     </div>
+              <!-- <div class="pin-item">
+                     <img src="../src/car.JPG" alt="Photo 1">
+              </div> -->
 
 
-     <script src="./scrolltrigger/ScrollTrigger.min.js"></script>
-     <script src="./scrolltrigger/gsap.min.js"></script>
-     <script src="./main.js"></script>
-     <script>
-          
-     </script>
+       </div>
+
+
+       <script src="./scrolltrigger/ScrollTrigger.min.js"></script>
+       <script src="./scrolltrigger/gsap.min.js"></script>
+       <script src="./main.js"></script>
+       <script>
+              const imageFiles = [
+                     'DSC_0088.png',
+                     'DSC_0501.png',
+                     'DSC_0626.JPG',
+                     'DSC01513.JPG',
+                     'DSC02964.JPG',
+                     'DSC03012.JPG',
+                     'DSCF9884.JPG',
+                     'DSCF9892.JPG',
+                     'DSCF9932.JPG',
+                     'DSC03087.JPG',
+                     'DSC_0158.JPG',
+                     'DSC_0450.JPG',
+                     'DSC_0032.JPG',
+                     'DSC_0090.JPG',
+                     'DSC_0180.JPG',
+                     'DSC_0209.JPG',
+
+              ];
+
+              // Get the gallery container
+              const gallery = document.getElementById('photo-gallery');
+
+              // Create and append each image
+              imageFiles.forEach((filename, index) => {
+                     const pinItem = document.createElement('div');
+                     pinItem.className = 'pin-item';
+
+                     const img = document.createElement('img');
+                     img.src = `../src/gallery/${filename}`;
+                     img.alt = `Photo ${index + 1}`;
+
+                     pinItem.appendChild(img);
+                     gallery.appendChild(pinItem);
+              });
+       </script>
 </body>
 
 </html>

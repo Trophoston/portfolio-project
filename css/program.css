@@ -54,3 +54,23 @@ p{
 
      flex-direction: column;
 }
+
+.pin{
+  column-count: 5;
+    margin: 100px 20px 20px 20px;
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.pin-item{
+    -webkit-column-break-inside: avoid;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 1em;
+}
+
+.pin-item img{
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}

@@ -1,178 +1,216 @@
 @font-face {
-     font-family: 'pata';
-     src: url(../font/Prata-Regular.ttf);
+       font-family: 'pata';
+       src: url(../font/Prata-Regular.ttf);
 }
 
 @font-face {
-     font-family: 'PPNeu';
-     src: url(../font/PPNeueMachina-InktrapRegular.otf);
+       font-family: 'PPNeu';
+       src: url(../font/PPNeueMachina-InktrapRegular.otf);
 }
 
 @font-face {
-     font-family: 'super';
-     src: url(../font/LINESeedSansTH_W_Th.woff2);
+       font-family: 'super';
+       src: url(../font/LINESeedSansTH_W_Th.woff2);
 }
 
 * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     overflow-x: hidden;
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       overflow-x: hidden;
 
-     font-family: 'helvica';
+       font-family: 'helvica';
 }
 
-.nav{
-     position: fixed;
-     top: -1px;
-     width: 100%;
-     height: 100px;
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     padding: 0 4em;
-     background-color: #fff;
-     z-index: 1000;
+.nav {
+       position: fixed;
+       top: -1px;
+       width: 100%;
+       height: 100px;
+       display: flex;
+       align-items: center;
+       justify-content: space-between;
+       padding: 0 4em;
+       background-color: #fff;
+       z-index: 1000;
 }
 
-a{
-     text-decoration: none;
+a {
+       text-decoration: none;
 }
 
-.link{
-     text-transform: uppercase;
-     color: #000;
-     padding: 0 1em;
-     font-size: 12px;
+.link {
+       text-transform: uppercase;
+       color: #000;
+       padding: 0 1em;
+       font-size: 12px;
 }
 
-.logo{
-     position: fixed;
-     top: 0;
-     left: 50%;
-     transform: translateX(-50%);
-     padding: 1em;
-     z-index: 1001;
-     font-family: 'PPNeu';
+.logo {
+       position: fixed;
+       top: 0;
+       left: 50%;
+       transform: translateX(-50%);
+       padding: 1em;
+       z-index: 1001;
+       font-family: 'PPNeu';
 }
 
-.container{
-     width: 100%;
-     height: 100vh;
-     background: #fff;
+.container {
+       width: 100%;
+       height: 100vh;
+       background: #fff;
 }
 
-.content{
-     width: 100%;
-     /* height: 100vh; */
-     background: #fff;
-     position: relative;
-     padding: 0 4em;
+.content {
+       width: 100%;
+       /* height: 100vh; */
+       background: #fff;
+       position: relative;
+       padding: 0 4em;
 }
 
-.content h1,p{
-     font-family: super;
+.content h1,
+p {
+       font-family: super;
 }
 
-.topimage{
-     /* filter: saturate(90%) sepia(30%) contrast(105%); */
-     filter: saturate(0) ;
-     width: 100%;
+.topimage {
+       /* filter: saturate(90%) sepia(30%) contrast(105%); */
+       filter: saturate(0);
+       width: 100%;
 
 }
 
-.image-cover{
-     width: 100%;
-     overflow: hidden;
-     /* height: 200px; */
-     margin-bottom: 3em;
-     margin-top: 3em;
-     z-index: 100;
+.image-cover {
+       width: 100%;
+       overflow: hidden;
+       /* height: 200px; */
+       margin-bottom: 3em;
+       margin-top: 3em;
+       z-index: 100;
 }
 
 
-.description{
-     font-size: 18px;
-     font-family: super;
-     width: 50%;
+.description {
+       font-size: 18px;
+       font-family: super;
+       width: 50%;
 }
 
-.description a{
-     font-family: super;
-     color: #000;
-     text-decoration: underline 0.1px #808080;
+.description a {
+       font-family: super;
+       color: #000;
+       text-decoration: underline 0.1px #808080;
 }
 
 details summary {
-     list-style: none; /* Removes the default triangle */
-     padding-left: 20px; /* Adds space for the new icon */
-     position: relative; /* To position the new icon */
-     cursor: pointer; /* Change the cursor to a pointer */
-     font-weight: 600;
-   }
+       list-style: none;
+       /* Removes the default triangle */
+       padding-left: 20px;
+       /* Adds space for the new icon */
+       position: relative;
+       /* To position the new icon */
+       cursor: pointer;
+       /* Change the cursor to a pointer */
+       font-weight: 600;
+}
 
 details summary::before {
-content: "▷"; /* Unicode for down arrow (▼) */
-font-size: 14px;  /* Icon size */
-position: absolute; /* Position it properly */
-left: 0;
-top: 0;
-font-weight: 200;
+       content: "▷";
+       /* Unicode for down arrow (▼) */
+       font-size: 14px;
+       /* Icon size */
+       position: absolute;
+       /* Position it properly */
+       left: 0;
+       top: 0;
+       font-weight: 200;
 }
 
 /* Change the icon when the details are open */
 details[open] summary::before {
-content: "▶"; /* Unicode for up arrow (▲) */
+       content: "▶";
+       /* Unicode for up arrow (▲) */
 }
 
-.footer{
-     width: 100%;
-     height: 100px;
-     background: #2b2b2b;
-     color: #fff;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     font-family: 'PPNeu';
-     text-transform: uppercase;
-     font-size: 12px;
+.footer {
+       width: 100%;
+       height: 100px;
+       background: #2b2b2b;
+       color: #fff;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       font-family: 'PPNeu';
+       text-transform: uppercase;
+       font-size: 12px;
 }
 
-footer p{
-     margin: 0;
-     padding: 0;
+footer p {
+       margin: 0;
+       padding: 0;
 }
 
+@media screen and (max-width: 768px) {
+       .nav {
+              padding: 0.4em 1em;
+              height: 70px;
+              justify-content: space-evenly;
+              align-items: end;
+       }
 
+       .nav div {
+              display: flex;
+              width: 100%;
+              justify-content: space-evenly;
+       }
 
+       .logo {
+              padding: 0.5em;
+              font-size: 1.5em;
+              /* transform: rotate(90deg); */
+       }
 
-@media screen and (max-width: 768px){
-     .nav{
-          padding: 0.4em 1em;
-          height: 70px;
-          justify-content: space-evenly;
-          align-items: end;
-     }
+       .link {
+              font-size: 8px;
+       }
 
-     .nav div{
-          display: flex;
-          width: 100%;
-          justify-content: space-evenly;
-     }
+       .description {
+              font-size: 14px;
+              width: 100%;
+       }
 
-     .logo{
-          padding: 0.5em;
-          font-size: 1.5em;
-          /* transform: rotate(90deg); */
-     }
+}
 
-     .link{
-          font-size: 8px;
-     }
+/* make load effect for text */
 
-     .description{
-          font-size: 14px;
-          width: 100%;
-     }
-     
+@keyframes load {
+       0% {
+              width: 100%;
+       }
+
+       100% {
+              width: 0%;
+       }
+}
+
+p::after,
+/* h1::after, */
+a::after {
+       content: "";
+       position: absolute;
+       height: 100%;
+       left: 0;
+       bottom: 0;
+       width: 0;
+       background: #585858;
+       transition: width 0.3s;
+       animation: load .5s ease-in-out forwards;
+}
+
+p,
+/* h1, */
+a {
+       position: relative;
 }

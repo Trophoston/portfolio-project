@@ -22,6 +22,22 @@
        font-family: 'helvica';
 }
 
+/* hide scroll bar */
+
+*::-webkit-scrollbar {
+       display: none;
+}
+
+* {
+
+       -ms-overflow-style: none;
+       /* Internet Explorer 10+ */
+       scrollbar-width: none;
+       /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+
+
 .nav {
        position: fixed;
        top: -1px;
@@ -227,7 +243,7 @@ a {
 
 }
 
-.frow{
+.frow {
        flex-direction: row;
 }
 

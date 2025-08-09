@@ -35,7 +35,7 @@
                      object-fit: contain;
                      border-radius: 8px;
                      box-shadow: 0 0px 500px rgba(94, 94, 94, 0.5);
-                     mix-blend-mode : difference;
+                     mix-blend-mode: difference;
                      outline: none;
                      opacity: 0;
                      transform: scale(0.8);
@@ -53,10 +53,12 @@
                      right: 30px;
                      color: white;
                      font-size: 40px;
-                     font-weight: bold;
+                     font-weight: lighter;
                      cursor: pointer;
                      z-index: 10000;
                      transition: color 0.3s;
+
+                     font-family: super;
               }
 
               .close-btn:hover {
@@ -86,7 +88,7 @@
                      mix-blend-mode: difference;
 
                      max-width: 70vw;
-                     
+
                      text-transform: uppercase;
               }
 
@@ -105,10 +107,78 @@
                      transform: scale(1.02);
                      filter: brightness(1.1);
               } */
+
+
+
+              @keyframes fade {
+                     0% {
+                            opacity: 0;
+                     }
+
+                     100% {
+                            opacity: 1;
+                     }
+              }
+
+              .fadeanimation {
+                     animation: fade 0.5s ease forwards;
+              }
+
+
+              @keyframes loadv {
+                     0% {
+                            height: 100vh;
+                     }
+
+                     100% {
+                            height: 0vh;
+                     }
+              }
+
+
+              @keyframes lockv {
+                     0% {
+                            height: 100vh;
+                            overflow: hidden;
+                     }
+                     99% {
+                            height: 100vh;
+                            overflow: hidden;
+                     }
+                     100% {
+                            height: auto;
+                            overflow: scroll;
+                     }
+              }
+
+              /* p::after, */
+              /* h1::after, */
+              body::after {
+                     content: "";
+                     position: fixed;
+                     height: 100vh;
+                     left: 0;
+                     bottom: 0;
+                     width: 100%;
+                     background: #0000006b;
+                     backdrop-filter: blur(10px);
+                     z-index: 99999;
+                     animation: loadv 3s ease-in-out forwards;
+              }
+
+              body {
+                     position: relative;
+                     animation: lockv 3s ease-in-out forwards;
+                     
+                            height: auto;
+
+                     overflow: scroll;
+              }
+
        </style>
 </head>
 
-<body style="overflow-y: hidden;">
+<body style="background-color: black;">
        <a href="../index.html" class="back" style="color: white;">&lharu; Back</a>
 
        <div class="pin" id="photo-gallery" style="overflow: hidden;">
@@ -116,10 +186,10 @@
        </div>
 
        <!-- Modal for image preview -->
-       <div id="imageModal" class="modal">
-              <span class="close-btn" id="closeModal">&times;</span>
-              <img class="modal-content" id="modalImage" src="" alt="">
-              <div class="image-title" id="imageTitle"></div>
+       <div id="imageModal" class="modal fadeanimation">
+              <span class="close-btn fadeanimation" id="closeModal">&times;</span>
+              <img class="modal-content fadeanimation" id="modalImage" src="" alt="">
+              <div class="image-title fadeanimation" id="imageTitle"></div>
        </div>
 
        <script src="./scrolltrigger/ScrollTrigger.min.js"></script>
@@ -129,64 +199,148 @@
 
               const imgdata = [
                      {
-                            "src" : "DSC_0501.png",
-                            "title" : "Does the picture speak a thousand words?"
+                            "src": "DSCF9376.jpg",
+                            "title": "Photo 33"
                      },
                      {
-                            "src" : "DSC_0088.png",
-                            "title" : "Photo 2"
+                            "src": "DSC_0110.jpg",
+                            "title": "Photo 9"
                      },
                      {
-                            "src" : "DSC_0626.JPG",
-                            "title" : "Photo 3"
+                            "src": "DSC02964.JPG",
+                            "title": "Photo 26"
                      },
                      {
-                            "src" : "DSC01513.JPG",
-                            "title" : "Photo 4"
+                            "src": "DSC_0501.png",
+                            "title": "Photo 14"
                      },
                      {
-                            "src" : "DSC02964.JPG",
-                            "title" : "Photo 5"
+                            "src": "DSCF8748.jpg",
+                            "title": "Photo 31"
                      },
                      {
-                            "src" : "DSC03012.JPG",
-                            "title" : "Photo 6"
+                            "src": "DSC_0158.JPG",
+                            "title": "Photo 10"
                      },
                      {
-                            "src" : "DSCF9884.JPG",
-                            "title" : "Photo 7"
+                            "src": "DSC02075.jpg",
+                            "title": "Photo 24"
                      },
                      {
-                            "src" : "DSCF9892.JPG",
-                            "title" : "Photo 8"
+                            "src": "DSC_0032.JPG",
+                            "title": "Photo 2"
                      },
                      {
-                            "src" : "DSCF9932.JPG",
-                            "title" : "Photo 9"
+                            "src": "DSCF9982.jpg",
+                            "title": "Photo 37"
                      },
                      {
-                            "src" : "DSC_0158.JPG",
-                            "title" : "Photo 10"
+                            "src": "DSC01347.jpg",
+                            "title": "Photo 19"
                      },
                      {
-                            "src" : "DSC_0450.JPG",
-                            "title" : "Photo 11"
+                            "src": "DSC_0209.JPG",
+                            "title": "Photo 12"
                      },
                      {
-                            "src" : "DSC_0032.JPG",
-                            "title" : "Photo 12"
+                            "src": "DSC03084.jpg",
+                            "title": "Photo 28"
                      },
                      {
-                            "src" : "DSC_0090.JPG",
-                            "title" : "Photo 13"
+                            "src": "DSC_0044.jpg",
+                            "title": "Photo 3"
                      },
                      {
-                            "src" : "DSC_0180.JPG",
-                            "title" : "Photo 14"
+                            "src": "DSCF8752.jpg",
+                            "title": "Photo 32"
                      },
                      {
-                            "src" : "DSC_0209.JPG",
-                            "title" : "Photo 15"
+                            "src": "DSC01513.JPG",
+                            "title": "Photo 20"
+                     },
+                     {
+                            "src": "DSC_0626.JPG",
+                            "title": "Photo 15"
+                     },
+                     {
+                            "src": "DSCF9932.jpg",
+                            "title": "Photo 36"
+                     },
+                     {
+                            "src": "DSC00610.jpg",
+                            "title": "Photo 17"
+                     },
+                     {
+                            "src": "DSC_0105.jpg",
+                            "title": "Photo 7"
+                     },
+                     {
+                            "src": "DSC02047.jpg",
+                            "title": "Photo 23"
+                     },
+                     {
+                            "src": "DSC_0088.png",
+                            "title": "Photo 5"
+                     },
+                     {
+                            "src": "DSC03012.JPG",
+                            "title": "Photo 27"
+                     },
+                     {
+                            "src": "DSCF9884.jpg",
+                            "title": "Photo 34"
+                     },
+                     {
+                            "src": "DSC_0450.JPG",
+                            "title": "Photo 13"
+                     },
+                     {
+                            "src": "DSC01956.jpg",
+                            "title": "Photo 22"
+                     },
+                     {
+                            "src": "DSC_0090.JPG",
+                            "title": "Photo 6"
+                     },
+                     {
+                            "src": "DSCF8690.jpg",
+                            "title": "Photo 30"
+                     },
+                     {
+                            "src": "DSC02528.jpg",
+                            "title": "Photo 25"
+                     },
+                     {
+                            "src": "DSC_0109.jpg",
+                            "title": "Photo 8"
+                     },
+                     {
+                            "src": "DSC01937.jpg",
+                            "title": "Photo 21"
+                     },
+                     {
+                            "src": "DSC03087.JPG",
+                            "title": "Photo 29"
+                     },
+                     {
+                            "src": "DSC_0004.jpg",
+                            "title": "Photo 1"
+                     },
+                     {
+                            "src": "DSCF9892.jpg",
+                            "title": "Photo 35"
+                     },
+                     {
+                            "src": "DSC01342.jpg",
+                            "title": "Photo 18"
+                     },
+                     {
+                            "src": "DSC_0180.JPG",
+                            "title": "Photo 11"
+                     },
+                     {
+                            "src": "DSC00541.jpg",
+                            "title": "Photo 16"
                      }
               ]
 
@@ -205,14 +359,15 @@
                      const img = document.createElement('img');
                      img.src = `../src/gallery/${imageData.src}`;
                      img.alt = imageData.title;
-                     
+
                      // Add click event to open modal
                      img.addEventListener('click', () => {
                             modalImage.src = img.src;
                             modalImage.alt = img.alt;
                             imageTitle.textContent = imageData.title;
                             modal.classList.add('active');
-                            document.body.style.overflow = 'hidden'; // Disable scroll
+                            // document.body.style.height = '100vh'; // Enable scroll
+                            document.documentElement.style.overflow = 'hidden'; // Disable scroll
                      });
 
                      pinItem.appendChild(img);
@@ -222,7 +377,8 @@
               // Close modal functions
               const closeModal = () => {
                      modal.classList.remove('active');
-                     document.body.style.overflow = 'auto'; // Enable scroll
+                     document.documentElement.style.overflow = 'scroll'; // Enable scroll
+
               };
 
               // Event listeners for closing modal
@@ -230,6 +386,8 @@
               modal.addEventListener('click', (e) => {
                      if (e.target === modal) {
                             closeModal();
+                            document.documentElement.style.overflow = 'scroll'; // Enable scroll
+
                      }
               });
 
@@ -237,6 +395,8 @@
               document.addEventListener('keydown', (e) => {
                      if (e.key === 'Escape' && modal.classList.contains('active')) {
                             closeModal();
+                            document.documentElement.style.overflow = 'scroll'; // Enable scroll
+
                      }
               });
        </script>

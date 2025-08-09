@@ -6,90 +6,238 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <title>◭</title>
        <link rel="stylesheet" href="../css/program.css">
+       <style>
+              /* Modal styles */
+              .modal {
+                     display: none;
+                     position: fixed;
+                     z-index: 9999;
+                     left: 0;
+                     top: 0;
+                     width: 100%;
+                     height: 100%;
+                     background-color: rgba(0, 0, 0, 0.8);
+                     align-items: center;
+                     justify-content: center;
+
+                     backdrop-filter: blur(5px);
+
+                     /* pointer-events: none; */
+              }
+
+              .modal.active {
+                     display: flex;
+              }
+
+              .modal-content {
+                     max-height: 70vh;
+                     max-width: 90vw;
+                     object-fit: contain;
+                     border-radius: 8px;
+                     box-shadow: 0 0px 500px rgba(94, 94, 94, 0.5);
+                     mix-blend-mode : difference;
+                     outline: none;
+                     opacity: 0;
+                     transform: scale(0.8);
+                     transition: all 0.3s ease;
+              }
+
+              .modal.active .modal-content {
+                     opacity: 1;
+                     transform: scale(1);
+              }
+
+              .close-btn {
+                     position: absolute;
+                     top: 20px;
+                     right: 30px;
+                     color: white;
+                     font-size: 40px;
+                     font-weight: bold;
+                     cursor: pointer;
+                     z-index: 10000;
+                     transition: color 0.3s;
+              }
+
+              .close-btn:hover {
+                     color: #ccc;
+              }
+
+              /* Image title styles */
+              .image-title {
+                     position: absolute;
+                     /* bottom: 30px;
+                     left: 30px; */
+
+                     left: 40px;
+                     top: 40px;
+
+                     /* transform: translate(50%, -50%); */
+
+
+                     color: white;
+                     /* font-size: 18px; */
+                     font-size: 3vmin;
+
+                     font-family: 'super';
+
+                     z-index: 10000;
+
+                     mix-blend-mode: difference;
+
+                     max-width: 70vw;
+                     
+                     text-transform: uppercase;
+              }
+
+              .modal.active .image-title {
+                     opacity: 1;
+                     /* transform: translateY(0); */
+              }
+
+              /* Make images clickable */
+              .pin-item img {
+                     cursor: pointer;
+                     transition: all 0.3s ease;
+              }
+
+              /* .pin-item img:hover {
+                     transform: scale(1.02);
+                     filter: brightness(1.1);
+              } */
+       </style>
 </head>
 
-<body>
-       <a href="../index.html" class="back"  style="color: white;">&lharu; Back</a>
+<body style="overflow-y: hidden;">
+       <a href="../index.html" class="back" style="color: white;">&lharu; Back</a>
 
-
-       <div class="pin"  id="photo-gallery">
-
-              <!-- <div class="pin-item">
-                     <img src="../src/car.JPG" alt="Photo 1">
-              </div> -->
-
-
+       <div class="pin" id="photo-gallery" style="overflow: hidden;">
+              <!-- Images will be dynamically loaded here -->
        </div>
 
+       <!-- Modal for image preview -->
+       <div id="imageModal" class="modal">
+              <span class="close-btn" id="closeModal">&times;</span>
+              <img class="modal-content" id="modalImage" src="" alt="">
+              <div class="image-title" id="imageTitle"></div>
+       </div>
 
        <script src="./scrolltrigger/ScrollTrigger.min.js"></script>
        <script src="./scrolltrigger/gsap.min.js"></script>
        <script src="./main.js"></script>
        <script>
-              const imageFiles = [
-                     'DSC_0501.png',
-                     'DSC_0088.png',
-                     'DSC_0626.JPG',
-                     'DSC01513.JPG',
-                     'DSC02964.JPG',
-                     'DSC03012.JPG',
-                     'DSCF9884.JPG',
-                     'DSCF9892.JPG',
-                     'DSCF9932.JPG',
-                     // 'DSC03087.JPG',
-                     'DSC_0158.JPG',
-                     'DSC_0450.JPG',
-                     'DSC_0032.JPG',
-                     'DSC_0090.JPG',
-                     'DSC_0180.JPG',
-                     'DSC_0209.JPG',
 
+              const imgdata = [
+                     {
+                            "src" : "DSC_0501.png",
+                            "title" : "Does the picture speak a thousand words?"
+                     },
+                     {
+                            "src" : "DSC_0088.png",
+                            "title" : "Photo 2"
+                     },
+                     {
+                            "src" : "DSC_0626.JPG",
+                            "title" : "Photo 3"
+                     },
+                     {
+                            "src" : "DSC01513.JPG",
+                            "title" : "Photo 4"
+                     },
+                     {
+                            "src" : "DSC02964.JPG",
+                            "title" : "Photo 5"
+                     },
+                     {
+                            "src" : "DSC03012.JPG",
+                            "title" : "Photo 6"
+                     },
+                     {
+                            "src" : "DSCF9884.JPG",
+                            "title" : "Photo 7"
+                     },
+                     {
+                            "src" : "DSCF9892.JPG",
+                            "title" : "Photo 8"
+                     },
+                     {
+                            "src" : "DSCF9932.JPG",
+                            "title" : "Photo 9"
+                     },
+                     {
+                            "src" : "DSC_0158.JPG",
+                            "title" : "Photo 10"
+                     },
+                     {
+                            "src" : "DSC_0450.JPG",
+                            "title" : "Photo 11"
+                     },
+                     {
+                            "src" : "DSC_0032.JPG",
+                            "title" : "Photo 12"
+                     },
+                     {
+                            "src" : "DSC_0090.JPG",
+                            "title" : "Photo 13"
+                     },
+                     {
+                            "src" : "DSC_0180.JPG",
+                            "title" : "Photo 14"
+                     },
+                     {
+                            "src" : "DSC_0209.JPG",
+                            "title" : "Photo 15"
+                     }
+              ]
 
-                     
-                     'DSC_0501.png',
-                     'DSC_0088.png',
-                     'DSCF9932.JPG',
-                     'DSCF9892.JPG',
-                     'DSC_0032.JPG',
-                     'DSC_0090.JPG',
-                     'DSC_0180.JPG',
-                     'DSC_0209.JPG',
-                     // 'DSC03087.JPG',
-                     'DSC_0158.JPG',
-                     'DSC_0450.JPG',
-                     'DSC_0626.JPG',
-                     'DSC01513.JPG',
-                     'DSC02964.JPG',
-                     'DSC03012.JPG',
-                     'DSCF9884.JPG',
-
-
-                     
-                     'DSC_0501.png',
-                     'DSC_0088.png',
-                     'DSCF9932.JPG',
-                     'DSCF9892.JPG',
-                     'DSC_0032.JPG',
-                     'DSC_0090.JPG',
-                     'DSC03012.JPG',
-                     'DSCF9884.JPG',
-
-              ];
-
-              // Get the gallery container
+              // Get modal elements
+              const modal = document.getElementById('imageModal');
+              const modalImage = document.getElementById('modalImage');
+              const closeBtn = document.getElementById('closeModal');
               const gallery = document.getElementById('photo-gallery');
+              const imageTitle = document.getElementById('imageTitle');
 
-              // Create and append each image
-              imageFiles.forEach((filename, index) => {
+              // Create and append each image using imgdata
+              imgdata.forEach((imageData, index) => {
                      const pinItem = document.createElement('div');
                      pinItem.className = 'pin-item';
 
                      const img = document.createElement('img');
-                     img.src = `../src/gallery/${filename}`;
-                     img.alt = `Photo ${index + 1}`;
+                     img.src = `../src/gallery/${imageData.src}`;
+                     img.alt = imageData.title;
+                     
+                     // Add click event to open modal
+                     img.addEventListener('click', () => {
+                            modalImage.src = img.src;
+                            modalImage.alt = img.alt;
+                            imageTitle.textContent = imageData.title;
+                            modal.classList.add('active');
+                            document.body.style.overflow = 'hidden'; // Disable scroll
+                     });
 
                      pinItem.appendChild(img);
                      gallery.appendChild(pinItem);
+              });
+
+              // Close modal functions
+              const closeModal = () => {
+                     modal.classList.remove('active');
+                     document.body.style.overflow = 'auto'; // Enable scroll
+              };
+
+              // Event listeners for closing modal
+              closeBtn.addEventListener('click', closeModal);
+              modal.addEventListener('click', (e) => {
+                     if (e.target === modal) {
+                            closeModal();
+                     }
+              });
+
+              // Close modal with Escape key
+              document.addEventListener('keydown', (e) => {
+                     if (e.key === 'Escape' && modal.classList.contains('active')) {
+                            closeModal();
+                     }
               });
        </script>
 </body>

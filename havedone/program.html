@@ -4,17 +4,101 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>◭</title>
+     <title>PROGRAMMING</title>
      <link rel="stylesheet" href="../css/program.css">
+     <script>
+          var datajson = [
+               // {
+               //      "title": "Project X",
+               //      "image": "../src/car.JPG",
+               //      "link": "../havedone/program.html"
+               // },
+               // {
+               //      "title": "Project Y",
+               //      "image": "../src/car.JPG",
+               //      "link": "../havedone/program.html"
+               // },
+               {
+                    "title": "3D Model Viewer",
+                    "image": "../src/project/3d_viewer.png",
+                    "link": "https://trophoston.github.io/3D-web1/"
+               },
+               {
+                    "title": "BMC Maker",
+                    "image": "../src/project/bmc_maker.png",
+                    "link": "https://online-bmc-maker.vercel.app/"
+               },
+               {
+                    "title": "Drink Fast",
+                    "image": "../src/project/drink_fast.png",
+                    "link": "https://trophoston.github.io/Drinkfaster/"
+               },
+               {
+                    "title": "Finger Shape",
+                    "image": "../src/project/finger_shape.png",
+                    "link": "https://trophoston.github.io/HandTracking-web/game.html"
+               },
+               {
+                    "title": "School Map",
+                    "image": "../src/project/yrc_map.png",
+                    "link": "https://trophoston.github.io/Yupparaj-3D-Map/"
+               },
+               {
+                    "title": "School Problem Report",
+                    "image": "../src/project/yrc_reporter.png",
+                    "link": "https://yrc-reporter.vercel.app/"
+               },
+               {
+                    "title": "Ong Or Game",
+                    "image": "../src/project/ong-or.png",
+                    "link": "https://www.ongor.fun/"
+               }
+          ];
+     </script>
 </head>
 
 <body>
-     <a href="../index.html" class="back">&lharu; Back</a>
+     <a href="../index.html" class="back" style="z-index: 10000;">&lharu; Back</a>
+
+
+
+     <h1>
+          PROGRAMMING 
+     </h1>
 
 
     <div class="container">
-          <h1>PROGRAMMING</h1>
-          <p>Comming soon . . .</p>
+          <script>
+               // show card from json
+               datajson.forEach(function (item) {
+                    var a = document.createElement("a");
+                    a.target = "_blank";
+                    a.href = item.link;
+                    a.className = "cardcontrol";
+                    a.style.textDecoration = "none";
+                    var p = document.createElement("p");
+                    p.innerText = item.title;
+                    var div = document.createElement("div");
+                    div.className = "cardcover";
+                    var img = document.createElement("img");
+                    img.src = item.image;
+                    img.alt = item.title;
+                    img.className = "cardimage";
+                    div.appendChild(img);
+                    a.appendChild(p);
+                    a.appendChild(div);
+                    document.querySelector(".container").appendChild(a);
+               });
+          </script>
+          <!-- <a href="../index.html" class="cardcontrol" style="text-decoration: none;" target="_blank">
+
+               <p>Project X</p>
+
+               <div class="cardcover">
+                    <img src="../src/car.JPG" alt="Project X" class="cardimage">
+               </div>
+
+          </a> -->
     </div>
 
 
@@ -22,6 +106,7 @@
 
      <script src="./scrolltrigger/ScrollTrigger.min.js"></script>
      <script src="./scrolltrigger/gsap.min.js"></script>
+     <script src="./program.js"></script>
      <script src="./main.js"></script>
 </body>
 

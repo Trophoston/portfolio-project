@@ -20,6 +20,8 @@
        overflow-x: hidden;
 
        font-family: 'helvica';
+
+       scroll-behavior: smooth;
 }
 
 /* hide scroll bar */

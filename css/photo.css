@@ -1,0 +1,116 @@
+@font-face {
+       font-family: 'pata';
+       src: url(../font/Helvetica.ttf);
+}
+
+@font-face {
+       font-family: 'PPNeu';
+       src: url(../font/PPNeueMachina-InktrapRegular.otf);
+}
+
+@font-face {
+       font-family: 'super';
+       src: url(../font/LINESeedSansTH_W_Th.woff2);
+}
+
+* {
+       margin: 0;
+       padding: 0;
+       box-sizing: border-box;
+       overflow-x: hidden;
+
+       font-family: 'pata';
+}
+
+
+
+*::-webkit-scrollbar {
+       display: none;
+}
+
+* {
+
+       -ms-overflow-style: none;
+       /* Internet Explorer 10+ */
+       scrollbar-width: none;
+       /* Firefox, Safari 18.2+, Chromium 121+ */
+}
+
+p {
+       font-family: 'super';
+}
+
+.back {
+       text-decoration: none;
+       color: black;
+       font-size: 24px;
+       height: 40px;
+
+       font-family: 'super';
+
+       position: fixed;
+       top: 15px;
+       left: 20px;
+       transition: all 1s;
+       display: block;
+       font-weight: 700;
+}
+
+.back:hover {
+       transform: translateX(-10%);
+}
+
+.container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       min-height: 100vh;
+
+       flex-direction: column;
+}
+
+.pin {
+       column-count: 5;
+       padding: 0px .0em .0em .0em;
+       column-gap: .0em;
+}
+
+@media screen and (max-width: 1200px) {
+       .pin {
+              column-count: 3;
+       }
+       
+}
+
+@media screen and (max-width: 700px) {
+       .pin {
+              column-count: 2;
+       }
+       
+}
+
+
+.pin-item {
+       -webkit-column-break-inside: avoid;
+       break-inside: avoid;
+       page-break-inside: avoid;
+       margin-bottom: .0em;
+
+       overflow: hidden;
+
+       transition: all 0.3s ease-in-out !important ;
+
+}
+
+.pin-item img:hover {
+       /* transform: scale(1.05); */
+}
+
+.pin-item img {
+       width: 100%;
+       display: block;
+       /* border-radius: 8px; */
+
+       transition: all 0.3s ease-in-out !important ;
+
+}

@@ -174,3 +174,14 @@ body{
 .cardcontrol{
        filter: drop-shadow(0 10px 10px rgba(0,0,0,0.3));
 }
+
+.scaledown{
+
+}
+
+@media screen and (max-width: 300px) {
+       .scaledown{
+              font-size: 23px;
+       }
+       
+}
